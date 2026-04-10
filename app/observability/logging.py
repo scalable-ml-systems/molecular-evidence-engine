@@ -1,6 +1,13 @@
 import json
+import os
 import time
+from pathlib import Path
 from typing import Any
+
+LOG_DIR = Path("output/logs")
+LOG_DIR.mkdir(parents=True, exist_ok=True)
+
+EVENT_LOG_PATH = LOG_DIR / "events.jsonl"
 
 
 def log_event(event: str, **fields: Any) -> None:
@@ -9,7 +16,13 @@ def log_event(event: str, **fields: Any) -> None:
         "ts": time.time(),
         **fields,
     }
-    print(json.dumps(payload, default=str))
+
+    line = json.dumps(payload, default=str)
+
+    print(line)
+
+    with open(EVENT_LOG_PATH, "a", encoding="utf-8") as f:
+        f.write(line + "\n")
 
 
 def snapshot_workspace(workspace) -> dict:
