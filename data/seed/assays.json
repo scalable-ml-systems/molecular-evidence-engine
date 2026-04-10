@@ -1,0 +1,30 @@
+[
+  {
+    "id": "assay_row_001",
+    "source_id": "assay_004",
+    "chunk_id": "assay_004_row_01",
+    "title": "BTK assay row",
+    "text": "BTK IC50 = 9.7 nM in alternate assay setup.",
+    "compound": "acalabrutinib",
+    "target": "BTK",
+    "measurement_type": "IC50",
+    "value": 9.7,
+    "unit": "nM",
+    "assay_category": "cellular",
+    "assay_context": "cellular assay"
+  },
+  {
+    "id": "assay_row_002",
+    "source_id": "assay_005",
+    "chunk_id": "assay_005_row_01",
+    "title": "TEC assay row",
+    "text": "TEC IC50 = 126 nM under platelet phosphorylation assay.",
+    "compound": "acalabrutinib",
+    "target": "TEC",
+    "measurement_type": "IC50",
+    "value": 126,
+    "unit": "nM",
+    "assay_category": "cellular",
+    "assay_context": "platelet phosphorylation assay"
+  }
+]

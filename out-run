@@ -1,0 +1,122 @@
+{"event": "run_created", "run_id": "run_b0e3d384c2e0", "query": "acalabrutinib"}
+{"event": "before_agent", "run_id": "run_b0e3d384c2e0", "run_status": "running", "current_phase": "patent_agent", "has_conflicts": false, "requires_review": false, "artifact_ready": false, "docs": 0, "facts": 0, "sar": 0, "admet_present": false, "conflicts": 0}
+{"event": "after_agent", "run_id": "run_b0e3d384c2e0", "run_status": "running", "current_phase": null, "has_conflicts": false, "requires_review": false, "artifact_ready": false, "docs": 2, "facts": 0, "sar": 2, "admet_present": false, "conflicts": 0}
+{"event": "before_agent", "run_id": "run_b0e3d384c2e0", "run_status": "running", "current_phase": "literature_agent", "has_conflicts": false, "requires_review": false, "artifact_ready": false, "docs": 2, "facts": 0, "sar": 2, "admet_present": false, "conflicts": 0}
+{"event": "after_agent", "run_id": "run_b0e3d384c2e0", "run_status": "running", "current_phase": null, "has_conflicts": false, "requires_review": false, "artifact_ready": false, "docs": 5, "facts": 2, "sar": 2, "admet_present": false, "conflicts": 0}
+{"event": "before_agent", "run_id": "run_b0e3d384c2e0", "run_status": "running", "current_phase": "admet_agent", "has_conflicts": false, "requires_review": false, "artifact_ready": false, "docs": 5, "facts": 2, "sar": 2, "admet_present": false, "conflicts": 0}
+{"event": "after_agent", "run_id": "run_b0e3d384c2e0", "run_status": "running", "current_phase": null, "has_conflicts": false, "requires_review": false, "artifact_ready": false, "docs": 5, "facts": 2, "sar": 2, "admet_present": true, "conflicts": 0}
+{"event": "before_agent", "run_id": "run_b0e3d384c2e0", "run_status": "running", "current_phase": "crossref_agent", "has_conflicts": false, "requires_review": false, "artifact_ready": false, "docs": 5, "facts": 2, "sar": 2, "admet_present": true, "conflicts": 0}
+{"event": "after_agent", "run_id": "run_b0e3d384c2e0", "run_status": "running", "current_phase": null, "has_conflicts": true, "requires_review": true, "artifact_ready": false, "docs": 5, "facts": 2, "sar": 2, "admet_present": true, "conflicts": 1}
+{"event": "run_completed", "run_id": "run_b0e3d384c2e0", "run_status": "review_required", "current_phase": null, "has_conflicts": true, "requires_review": true, "artifact_ready": true, "docs": 5, "facts": 2, "sar": 2, "admet_present": true, "conflicts": 1}
+
+=== REGISTERED TOOLS ===
+['assay_lookup',
+ 'compute_admet',
+ 'literature_search',
+ 'measurement_normalizer',
+ 'patent_search']
+
+=== FINAL RUNS ===
+{'run_b0e3d384c2e0': Run(run_id='run_b0e3d384c2e0', schema_version='1.0', query='acalabrutinib', entity_type='compound', status=<RunStatus.REVIEW_REQUIRED: 'review_required'>, current_phase=None, has_conflicts=True, requires_review=True, artifact_ready=True, created_at=datetime.datetime(2026, 4, 9, 14, 38, 50, 634103, tzinfo=datetime.timezone.utc), updated_at=datetime.datetime(2026, 4, 9, 14, 38, 50, 635907, tzinfo=datetime.timezone.utc))}
+
+=== FINAL WORKSPACES ===
+{'run_b0e3d384c2e0': RunWorkspace(run_id='run_b0e3d384c2e0', retrieved_documents=[RetrievedDocument(retrieval_id='ret_8d4d3c8a0d5c', run_id='run_b0e3d384c2e0', source_id='patent_001', chunk_id='patent_001_chunk_02', source_type=<SourceType.PATENT: 'patent'>, title='BTK inhibitor analog series', text='Analog substitutions around the BTK core scaffold improved selectivity in several embodiments.', score=0.3438, metadata={'jurisdiction': 'WO', 'publication_year': 2017, 'source_type': 'patent'}), RetrievedDocument(retrieval_id='ret_23971e040537', run_id='run_b0e3d384c2e0', source_id='patent_002', chunk_id='patent_002_chunk_05', source_type=<SourceType.PATENT: 'patent'>, title='Covalent kinase inhibitors with improved selectivity', text='Scaffold modifications around acalabrutinib-like structures were associated with kinase selectivity changes.', score=0.2812, metadata={'jurisdiction': 'US', 'publication_year': 2018, 'source_type': 'patent'}), RetrievedDocument(retrieval_id='ret_e39b2514696f', run_id='run_b0e3d384c2e0', source_id='paper_001', chunk_id='paper_001_chunk_03', source_type=<SourceType.LITERATURE: 'literature'>, title='Selective BTK inhibition profile of acalabrutinib', text='Acalabrutinib showed biochemical IC50 of 5.1 nM against BTK and improved selectivity relative to earlier inhibitors.', score=0.5625, metadata={'year': 2018, 'authors': ['Hopper et al.'], 'source_type': 'literature'}), RetrievedDocument(retrieval_id='ret_802080659a5a', run_id='run_b0e3d384c2e0', source_id='paper_002', chunk_id='paper_002_chunk_01', source_type=<SourceType.LITERATURE: 'literature'>, title='Kinase selectivity patterns in covalent BTK inhibitors', text='Selectivity across TEC, EGFR and ERBB4 varied depending on scaffold substitutions and assay context.', score=0.375, metadata={'year': 2019, 'authors': ['Smith et al.'], 'source_type': 'literature'}), RetrievedDocument(retrieval_id='ret_87c768426304', run_id='run_b0e3d384c2e0', source_id='assay_004', chunk_id='assay_004_row_01', source_type=<SourceType.ASSAY: 'assay'>, title='BTK assay row', text='BTK IC50 = 9.7 nM in alternate assay setup.', score=1.0, metadata={'compound': 'acalabrutinib', 'target': 'BTK', 'measurement_type': 'IC50', 'value': 9.7, 'unit': 'nM', 'assay_category': 'cellular', 'assay_context': 'cellular assay'})], evidence_facts=[EvidenceFact(evidence_id='ev_10626bda8cd4', run_id='run_b0e3d384c2e0', entity='acalabrutinib', target='BTK', fact_type='potency', measurement_type=<MeasurementType.IC50: 'IC50'>, value=5.1, unit='nM', assay_category=<AssayCategory.ENZYMATIC: 'enzymatic'>, assay_context='biochemical assay', source_id='paper_001', chunk_id='paper_001_chunk_03', confidence=0.6, notes='Extracted from literature text'), EvidenceFact(evidence_id='ev_f7b0940b4f6e', run_id='run_b0e3d384c2e0', entity='acalabrutinib', target='BTK', fact_type='potency', measurement_type=<MeasurementType.IC50: 'IC50'>, value=9.7, unit='nM', assay_category=<AssayCategory.CELLULAR: 'cellular'>, assay_context='cellular assay', source_id='assay_004', chunk_id='assay_004_row_01', confidence=0.81, notes='Structured assay lookup result')], sar_observations=[SARObservation(sar_id='sar_16b6e979830d', run_id='run_b0e3d384c2e0', entity='acalabrutinib', analog_name='analog_x', scaffold_key='btk_core_scaffold_A', observation='Analog substitutions around the BTK core scaffold improved selectivity in several embodiments.', source_id='patent_001', chunk_id='patent_001_chunk_02', confidence=0.5), SARObservation(sar_id='sar_c998b5e91bd1', run_id='run_b0e3d384c2e0', entity='acalabrutinib', analog_name='analog_x', scaffold_key='btk_core_scaffold_A', observation='Scaffold modifications around acalabrutinib-like structures were associated with kinase selectivity changes.', source_id='patent_002', chunk_id='patent_002_chunk_05', confidence=0.5)], admet_summary=ADMETSummary(admet_id='admet_0bb8f7409fd2', run_id='run_b0e3d384c2e0', entity='acalabrutinib', solubility_bucket='medium', permeability_bucket='high', cyp450_liability='low', herg_risk='low', method='heuristic_v1', source_type=<SourceType.COMPUTED: 'computed'>, confidence=0.72, notes=['Generated by compute_admet']), conflict_groups=[ConflictGroup(group_key='acalabrutinib|BTK|IC50', entity='acalabrutinib', target='BTK', measurement_type=<MeasurementType.IC50: 'IC50'>, normalized_unit='nM', evidence_ids=['ev_10626bda8cd4', 'ev_f7b0940b4f6e'])], conflicts=[ConflictRecord(conflict_id='conf_21fc81492150', run_id='run_b0e3d384c2e0', group_key='acalabrutinib|BTK|IC50', issue_type='value_disagreement', normalized_values=[5.1, 9.7], unit='nM', source_ids=['paper_001', 'assay_004'], assay_categories=[<AssayCategory.ENZYMATIC: 'enzymatic'>, <AssayCategory.CELLULAR: 'cellular'>], reason_hint='assay_context_mismatch', requires_review=True, confidence=0.84)], interim_notes=[], updated_at=datetime.datetime(2026, 4, 9, 14, 38, 50, 635776, tzinfo=datetime.timezone.utc))}
+
+=== FINAL ARTIFACTS ===
+{'artifact_0eba1df9aca4': ArtifactEnvelope(artifact_id='artifact_0eba1df9aca4', artifact_type=<ArtifactType.EVIDENCE_BRIEF: 'evidence_brief'>, schema_version='1.0', payload=EvidenceBrief(artifact_id='artifact_0eba1df9aca4', run_id='run_b0e3d384c2e0', entity='acalabrutinib', analogs=['analog_x', 'analog_x'], evidence_facts=[EvidenceFact(evidence_id='ev_10626bda8cd4', run_id='run_b0e3d384c2e0', entity='acalabrutinib', target='BTK', fact_type='potency', measurement_type=<MeasurementType.IC50: 'IC50'>, value=5.1, unit='nM', assay_category=<AssayCategory.ENZYMATIC: 'enzymatic'>, assay_context='biochemical assay', source_id='paper_001', chunk_id='paper_001_chunk_03', confidence=0.6, notes='Extracted from literature text'), EvidenceFact(evidence_id='ev_f7b0940b4f6e', run_id='run_b0e3d384c2e0', entity='acalabrutinib', target='BTK', fact_type='potency', measurement_type=<MeasurementType.IC50: 'IC50'>, value=9.7, unit='nM', assay_category=<AssayCategory.CELLULAR: 'cellular'>, assay_context='cellular assay', source_id='assay_004', chunk_id='assay_004_row_01', confidence=0.81, notes='Structured assay lookup result')], sar_observations=[SARObservation(sar_id='sar_16b6e979830d', run_id='run_b0e3d384c2e0', entity='acalabrutinib', analog_name='analog_x', scaffold_key='btk_core_scaffold_A', observation='Analog substitutions around the BTK core scaffold improved selectivity in several embodiments.', source_id='patent_001', chunk_id='patent_001_chunk_02', confidence=0.5), SARObservation(sar_id='sar_c998b5e91bd1', run_id='run_b0e3d384c2e0', entity='acalabrutinib', analog_name='analog_x', scaffold_key='btk_core_scaffold_A', observation='Scaffold modifications around acalabrutinib-like structures were associated with kinase selectivity changes.', source_id='patent_002', chunk_id='patent_002_chunk_05', confidence=0.5)], admet_summary=ADMETSummary(admet_id='admet_0bb8f7409fd2', run_id='run_b0e3d384c2e0', entity='acalabrutinib', solubility_bucket='medium', permeability_bucket='high', cyp450_liability='low', herg_risk='low', method='heuristic_v1', source_type=<SourceType.COMPUTED: 'computed'>, confidence=0.72, notes=['Generated by compute_admet']), conflicts=[ConflictRecord(conflict_id='conf_21fc81492150', run_id='run_b0e3d384c2e0', group_key='acalabrutinib|BTK|IC50', issue_type='value_disagreement', normalized_values=[5.1, 9.7], unit='nM', source_ids=['paper_001', 'assay_004'], assay_categories=[<AssayCategory.ENZYMATIC: 'enzymatic'>, <AssayCategory.CELLULAR: 'cellular'>], reason_hint='assay_context_mismatch', requires_review=True, confidence=0.84)], sources=['assay_004', 'paper_001', 'patent_001', 'patent_002'], final_summary='Evidence brief for acalabrutinib: 2 evidence facts, 2 SAR observations, 1 conflicts detected.', requires_review=True, review_decision=<ReviewDecision.PENDING: 'pending'>, created_at=datetime.datetime(2026, 4, 9, 14, 38, 50, 635833, tzinfo=datetime.timezone.utc)), created_at=datetime.datetime(2026, 4, 9, 14, 38, 50, 635857, tzinfo=datetime.timezone.utc))}
+
+=== FINAL REVIEWS ===
+{'review_9a81c008bbac': ReviewItem(review_id='review_9a81c008bbac', run_id='run_b0e3d384c2e0', artifact_id='artifact_0eba1df9aca4', requires_review=True, reasons=['conflicts_detected'], decision=<ReviewDecision.PENDING: 'pending'>, reviewer_notes=None, created_at=datetime.datetime(2026, 4, 9, 14, 38, 50, 635879, tzinfo=datetime.timezone.utc), decided_at=None)}
+
+=== RETURNED ARTIFACT SUMMARY ===
+{'artifact_id': 'artifact_0eba1df9aca4',
+ 'artifact_type': <ArtifactType.EVIDENCE_BRIEF: 'evidence_brief'>,
+ 'created_at': datetime.datetime(2026, 4, 9, 14, 38, 50, 635857, tzinfo=datetime.timezone.utc),
+ 'payload': {'admet_summary': {'admet_id': 'admet_0bb8f7409fd2',
+                               'confidence': 0.72,
+                               'cyp450_liability': 'low',
+                               'entity': 'acalabrutinib',
+                               'herg_risk': 'low',
+                               'method': 'heuristic_v1',
+                               'notes': ['Generated by compute_admet'],
+                               'permeability_bucket': 'high',
+                               'run_id': 'run_b0e3d384c2e0',
+                               'solubility_bucket': 'medium',
+                               'source_type': <SourceType.COMPUTED: 'computed'>},
+             'analogs': ['analog_x', 'analog_x'],
+             'artifact_id': 'artifact_0eba1df9aca4',
+             'conflicts': [{'assay_categories': [<AssayCategory.ENZYMATIC: 'enzymatic'>,
+                                                 <AssayCategory.CELLULAR: 'cellular'>],
+                            'confidence': 0.84,
+                            'conflict_id': 'conf_21fc81492150',
+                            'group_key': 'acalabrutinib|BTK|IC50',
+                            'issue_type': 'value_disagreement',
+                            'normalized_values': [5.1, 9.7],
+                            'reason_hint': 'assay_context_mismatch',
+                            'requires_review': True,
+                            'run_id': 'run_b0e3d384c2e0',
+                            'source_ids': ['paper_001', 'assay_004'],
+                            'unit': 'nM'}],
+             'created_at': datetime.datetime(2026, 4, 9, 14, 38, 50, 635833, tzinfo=datetime.timezone.utc),
+             'entity': 'acalabrutinib',
+             'evidence_facts': [{'assay_category': <AssayCategory.ENZYMATIC: 'enzymatic'>,
+                                 'assay_context': 'biochemical assay',
+                                 'chunk_id': 'paper_001_chunk_03',
+                                 'confidence': 0.6,
+                                 'entity': 'acalabrutinib',
+                                 'evidence_id': 'ev_10626bda8cd4',
+                                 'fact_type': 'potency',
+                                 'measurement_type': <MeasurementType.IC50: 'IC50'>,
+                                 'notes': 'Extracted from literature text',
+                                 'run_id': 'run_b0e3d384c2e0',
+                                 'source_id': 'paper_001',
+                                 'target': 'BTK',
+                                 'unit': 'nM',
+                                 'value': 5.1},
+                                {'assay_category': <AssayCategory.CELLULAR: 'cellular'>,
+                                 'assay_context': 'cellular assay',
+                                 'chunk_id': 'assay_004_row_01',
+                                 'confidence': 0.81,
+                                 'entity': 'acalabrutinib',
+                                 'evidence_id': 'ev_f7b0940b4f6e',
+                                 'fact_type': 'potency',
+                                 'measurement_type': <MeasurementType.IC50: 'IC50'>,
+                                 'notes': 'Structured assay lookup result',
+                                 'run_id': 'run_b0e3d384c2e0',
+                                 'source_id': 'assay_004',
+                                 'target': 'BTK',
+                                 'unit': 'nM',
+                                 'value': 9.7}],
+             'final_summary': 'Evidence brief for acalabrutinib: 2 evidence '
+                              'facts, 2 SAR observations, 1 conflicts '
+                              'detected.',
+             'requires_review': True,
+             'review_decision': <ReviewDecision.PENDING: 'pending'>,
+             'run_id': 'run_b0e3d384c2e0',
+             'sar_observations': [{'analog_name': 'analog_x',
+                                   'chunk_id': 'patent_001_chunk_02',
+                                   'confidence': 0.5,
+                                   'entity': 'acalabrutinib',
+                                   'observation': 'Analog substitutions around '
+                                                  'the BTK core scaffold '
+                                                  'improved selectivity in '
+                                                  'several embodiments.',
+                                   'run_id': 'run_b0e3d384c2e0',
+                                   'sar_id': 'sar_16b6e979830d',
+                                   'scaffold_key': 'btk_core_scaffold_A',
+                                   'source_id': 'patent_001'},
+                                  {'analog_name': 'analog_x',
+                                   'chunk_id': 'patent_002_chunk_05',
+                                   'confidence': 0.5,
+                                   'entity': 'acalabrutinib',
+                                   'observation': 'Scaffold modifications '
+                                                  'around acalabrutinib-like '
+                                                  'structures were associated '
+                                                  'with kinase selectivity '
+                                                  'changes.',
+                                   'run_id': 'run_b0e3d384c2e0',
+                                   'sar_id': 'sar_c998b5e91bd1',
+                                   'scaffold_key': 'btk_core_scaffold_A',
+                                   'source_id': 'patent_002'}],
+             'sources': ['assay_004', 'paper_001', 'patent_001', 'patent_002']},
+ 'schema_version': '1.0'}
