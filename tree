@@ -1,0 +1,81 @@
+.
+├── LICENSE
+├── NOTES
+│   ├── design-draft.md
+│   ├── rag-layer.md
+│   ├── repo.md
+│   ├── tool.md
+│   └── tree
+├── README.md
+├── app
+│   ├── __init__.py
+│   ├── __pycache__
+│   │   ├── __init__.cpython-313.pyc
+│   │   └── bootstrap.cpython-313.pyc
+│   ├── agents
+│   │   ├── __init__.py
+│   │   ├── __pycache__
+│   │   ├── admet_agent.py
+│   │   ├── base.py
+│   │   ├── crossref_agent.py
+│   │   ├── literature_agent.py
+│   │   ├── patent_agent.py
+│   │   └── stubs.py
+│   ├── bootstrap.py
+│   ├── common
+│   │   ├── __pycache__
+│   │   ├── clock.py
+│   │   └── ids.py
+│   ├── data
+│   │   ├── __pycache__
+│   │   └── loader.py
+│   ├── main.py
+│   ├── observability
+│   │   ├── __pycache__
+│   │   ├── logging.py
+│   │   └── replay.py
+│   ├── orchestrator
+│   │   ├── __pycache__
+│   │   └── runtime.py
+│   ├── repositories
+│   │   ├── __pycache__
+│   │   └── base.py
+│   ├── retrieval
+│   │   ├── __pycache__
+│   │   └── simple_search.py
+│   ├── schemas
+│   │   ├── __init__.py
+│   │   ├── __pycache__
+│   │   ├── artifacts.py
+│   │   ├── conflicts.py
+│   │   ├── enums.py
+│   │   ├── evidence.py
+│   │   ├── execution.py
+│   │   ├── memory.py
+│   │   └── review.py
+│   └── tools
+│       ├── __init__.py
+│       ├── __pycache__
+│       ├── base.py
+│       ├── computation
+│       ├── contracts.py
+│       ├── perception
+│       └── registry.py
+├── data
+│   └── seed
+│       ├── assays.json
+│       ├── papers.jsonl
+│       └── patents.jsonl
+├── out-run
+├── output
+│   └── logs
+│       └── events.jsonl
+├── scripts
+│   ├── __pycache__
+│   │   ├── replay_run.cpython-313.pyc
+│   │   └── run_local.cpython-313.pyc
+│   ├── replay_run.py
+│   └── run_local.py
+└── tree
+
+30 directories, 49 files

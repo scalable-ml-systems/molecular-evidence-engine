@@ -1,7 +1,11 @@
 from app.agents.base import RunRequest
 from app.common.clock import now_utc
 from app.common.ids import new_id
-from app.observability.logging import log_event
+from app.observability.logging import (
+    log_event,
+    snapshot_workspace,
+    diff_snapshot,
+)
 from app.repositories.base import RunRepository
 from app.schemas import (
     AgentName,
@@ -193,7 +197,16 @@ class SupervisorRuntime:
         run.updated_at = now_utc()
         self.repository.save_step(step)
         self.repository.save_run(run)
-
+        
+        log_event(
+        "step_transition",
+        run_id=run.run_id,
+        agent=step.agent_name.value,
+        from_status="pending" if step.attempt_count == 1 else "retrying",
+        to_status="running",
+        attempt_count=step.attempt_count,
+        )
+        
     def _mark_step_succeeded(self, run: Run, step: RunStep, result) -> None:
         step.status = StepStatus.SUCCEEDED
         step.completed_at = now_utc()
@@ -206,6 +219,15 @@ class SupervisorRuntime:
         self.repository.save_step(step)
         self.repository.save_run(run)
 
+        log_event(
+        "step_transition",
+        run_id=run.run_id,
+        agent=step.agent_name.value,
+        from_status="running",
+        to_status="succeeded",
+        output_ref=result.result_id,
+        )
+
     def _mark_step_failed(self, run: Run, step: RunStep, result) -> None:
         step.status = StepStatus.FAILED
         step.completed_at = now_utc()
@@ -214,13 +236,18 @@ class SupervisorRuntime:
         run.updated_at = now_utc()
         self.repository.save_step(step)
         self.repository.save_run(run)
+
+        log_event(
+        "step_transition",
+        run_id=run.run_id,
+        agent=step.agent_name.value,
+        from_status="running",
+        to_status="failed",
+        error_code="agent_failed",
+        error_message="; ".join(result.errors),
+        )
     
-    from app.observability.logging import (
-    log_event,
-    snapshot_workspace,
-    diff_snapshot,
-    )
-     
+    
     def _merge_result_into_workspace(self, workspace, result):
         before = snapshot_workspace(workspace)
 
@@ -248,6 +275,7 @@ class SupervisorRuntime:
 
         log_event(
             "workspace_update",
+            run_id=result.run_id,
             agent=result.agent_name,
             before=before,
             after=after,
@@ -295,7 +323,7 @@ class SupervisorRuntime:
         if not reasons:
             return None
 
-        return ReviewItem(
+        review_item = ReviewItem(
             review_id=new_id("review"),
             run_id=run.run_id,
             artifact_id=brief.artifact_id,
@@ -306,6 +334,14 @@ class SupervisorRuntime:
             created_at=now_utc(),
             decided_at=None,
         )
+
+        log_event(
+            "review_created",
+            run_id=run.run_id,
+            artifact_id=brief.artifact_id,
+            reasons=reasons,
+        )
+        return review_item
 
     def _log_state(self, event: str, run: Run, workspace: RunWorkspace) -> None:
         log_event(
